@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Eduardo Sampaio"]
   spec.email         = ["eduardo@sampa.io"]
   spec.summary       = %q{Robo support for Capistrano 3.X}
-  spec.description   = %q{Robo support for Capistrano 3.X}
+  spec.description   = %q{Add the capability to run Robo tasks on Capistrano 3.X}
   spec.homepage      = "https://github.com/esampaio/capistrano-robo"
   spec.license       = "MIT"
 
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'capistrano', '>= 3.0.0.pre'
+  spec.add_dependency 'capistrano', '~> 3.0'
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
