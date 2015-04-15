@@ -10,13 +10,13 @@ desc <<-DESC
       set :robo_flags, '-v'
 DESC
 task :robo, :task_name do |t, args|
-  fail ArgumentError.new('The robo task needs an argument, none passed.') unless args[:task_name]
+  # ask only runs if argument is not provided
+  ask(:cmd, '')
+  command = args[:task_name] || fetch(:cmd)
+
   on roles fetch(:robo_roles) do
     within fetch(:robo_target_path, release_path) do
-      options = [fetch(:robo_flags)]
-      options << args[:task_name]
-
-      execute fetch(:robo_exec), options
+      execute :php, fetch(:robo_exec), fetch(:robo_flags), command, *args.extras
     end
   end
 end
