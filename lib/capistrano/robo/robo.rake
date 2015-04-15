@@ -16,12 +16,10 @@ task :robo, :task_name do |t, args|
       options = [fetch(:robo_flags)]
       options << args[:task_name]
 
-      execute :robo, options
+      execute fetch(:robo_exec), options
     end
   end
 end
-
-SSHKit.config.command_map[:robo] = proc {fetch(:robo_exec)}
 
 namespace :robo do
   task default: :robo
