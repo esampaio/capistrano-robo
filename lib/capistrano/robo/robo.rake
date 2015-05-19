@@ -19,6 +19,7 @@ task :robo, :task_name do |t, args|
       execute fetch(:robo_exec), fetch(:robo_flags), command, *args.extras
     end
   end
+  Rake::Task[:robo].reenable
 end
 
 namespace :robo do
